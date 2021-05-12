@@ -12,4 +12,7 @@ public:
 	static void Uninit();
 	static void Begin();
 	static void End();
+
+	static void OpenGLSet2D();	// 2D描画モードへ切り替え
+	static void OpenGLSet3D();	// 3D描画モードへ切り替え
 };

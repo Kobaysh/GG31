@@ -80,3 +80,11 @@ struct VECTOR4D
 
 	float x, y, z, w;
 };
+
+struct VERTEX_3D
+{
+	VECTOR2D	TexCoord;	// テクスチャ座標
+	COLOR		Diffuse;	// 頂点カラー
+	VECTOR3D	Position;	// 座標
+	VECTOR3D	Normal;		// 法線
+};

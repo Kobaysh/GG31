@@ -74,4 +74,22 @@ void CRenderer::End()
 	SwapBuffers(m_DC);
 }
 
+void CRenderer::OpenGLSet2D()
+{
+	// 2Dマトリクス設定
+	glMatrixMode(GL_PROJECTION);	// プロジェクション行列操作モード
+	
+	glLoadIdentity();				// プロジェクション行列に単位行列をセット
+
+	glOrtho(0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 1);	// 平行投影をセット
+
+	glMatrixMode(GL_MODELVIEW);		// モデルビュー行列操作モード
+
+	glLoadIdentity();				// モデルビュー行列を単位行列にする
+}
+
+void CRenderer::OpenGLSet3D()
+{
+}
+
 

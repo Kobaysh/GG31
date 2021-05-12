@@ -2,6 +2,8 @@
 #include "renderer.h"
 #include "polygon.h"
 #include "textureGL.h"
+#include "vector.h"
+#include <math.h>
 
 // テクスチャ画像のファイル名
 char FileName[] = { "asset/texture/texture.tga" };
