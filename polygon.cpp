@@ -56,26 +56,26 @@ CPolygon::~CPolygon()
 			glTranslatef(Position1.x, Position1.y, Position1.z);	// スタックに乗算
 			// 回転行列
 			glRotatef(rotZ, 0, 0, 1.0f);	// 平行移動行列に乗算
-			rotZ += 0.1f;
+			rotZ += 1.1f;
 
 			// ポリゴンセット
 			glBegin(GL_TRIANGLE_STRIP);			// 頂点のセット開始
 			{
 				glColor4f(1.0f, 0.0f, 0.0f, 1.0f);	// 頂点1のカラーセット
 				glTexCoord2f(0.0f, 0.0f);			// 頂点1のテクスチャ座標
-				glVertex3f(100.0f, 100.0f, 0.0f);	// 頂点1の画面座標
+				glVertex3f(-100.0f, -100.0f, 0.0f);	// 頂点1の画面座標
 
 				glColor4f(0.0f, 1.0f, 0.0f, 1.0f);	// 頂点2のカラーセット
 				glTexCoord2f(0.0f, -1.0f);			// 頂点2のテクスチャ座標
-				glVertex3f(100.0f, 300.0f, 0.0f);	// 頂点2の画面座標
+				glVertex3f(-100.0f, 100.0f, 0.0f);	// 頂点2の画面座標
 
 				glColor4f(0.0f, 0.0f, 1.0f, 1.0f);	// 頂点3のカラーセット
 				glTexCoord2f(1.0f, 0.0f);			// 頂点3のテクスチャ座標
-				glVertex3f(300.0f, 100.0f, 0.0f);	// 頂点3の画面座標
+				glVertex3f(100.0f, -100.0f, 0.0f);	// 頂点3の画面座標
 
 				glColor4f(1.0f, 1.0f, 1.0f, 1.0f);	// 頂点4のカラーセット
 				glTexCoord2f(1.0f, -1.0f);			// 頂点4のテクスチャ座標
-				glVertex3f(300.0f, 300.0f, 0.0f);	// 頂点4の画面座標
+				glVertex3f(100.0f, 100.0f, 0.0f);	// 頂点4の画面座標
 
 
 			}
