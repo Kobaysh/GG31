@@ -43,12 +43,11 @@ CPolygon::~CPolygon()
 	
 	// テクスチャのセット
 	glBindTexture(GL_TEXTURE_2D, m_Texture);
-
+	static float rotZ = 0.0f;	// 回転角度z
+// 表示座標
+	static VECTOR3D Position1(SCREEN_WIDTH * 0.25f, SCREEN_HEIGHT * 0.25f, -0);
 	// 回転ポリゴンを表示
 	{
-		static float rotZ = 0.0f;	// 回転角度z
-		// 表示座標
-		static VECTOR3D Position1(SCREEN_WIDTH * 0.25f, SCREEN_HEIGHT * 0.25f, -0);
 		glMatrixMode(GL_MODELVIEW);	// ポリゴン描画行列の操作に切り替える
 		glPushMatrix();				// 現在のモデルビュー行列を保存
 		{
@@ -86,6 +85,41 @@ CPolygon::~CPolygon()
 	
 	}
 
+	{
+		glPushMatrix();				// 現在のモデルビュー行列を保存
+		{
+			// 平行移動行列
+			glTranslatef(Position1.x * 2, Position1.y * 2, Position1.z * 2);	// スタックに乗算
+			// 回転行列
+			glRotatef(rotZ, 0, 0, 1.0f);	// 平行移動行列に乗算
+			rotZ += 1.1f;
+
+			// ポリゴンセット
+			glBegin(GL_TRIANGLE_STRIP);			// 頂点のセット開始
+			{
+				glColor4f(1.0f, 0.0f, 0.0f, 1.0f);	// 頂点1のカラーセット
+				glTexCoord2f(0.0f, 0.0f);			// 頂点1のテクスチャ座標
+				glVertex3f(-100.0f, -100.0f, 0.0f);	// 頂点1の画面座標
+
+				glColor4f(0.0f, 1.0f, 0.0f, 1.0f);	// 頂点2のカラーセット
+				glTexCoord2f(0.0f, -1.0f);			// 頂点2のテクスチャ座標
+				glVertex3f(-100.0f, 100.0f, 0.0f);	// 頂点2の画面座標
+
+				glColor4f(0.0f, 0.0f, 1.0f, 1.0f);	// 頂点3のカラーセット
+				glTexCoord2f(1.0f, 0.0f);			// 頂点3のテクスチャ座標
+				glVertex3f(100.0f, -100.0f, 0.0f);	// 頂点3の画面座標
+
+				glColor4f(1.0f, 1.0f, 1.0f, 1.0f);	// 頂点4のカラーセット
+				glTexCoord2f(1.0f, -1.0f);			// 頂点4のテクスチャ座標
+				glVertex3f(100.0f, 100.0f, 0.0f);	// 頂点4の画面座標
+
+
+			}
+			glEnd();
+		}
+		glMatrixMode(GL_MODELVIEW);
+		glPopMatrix();		// 行列スタックの復帰
+	}
 
 	/*
 	// ポリゴンの描画
