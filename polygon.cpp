@@ -72,13 +72,13 @@ CPolygon::~CPolygon()
 		{
 			// ピラミッド位置
 			glTranslatef(Position1.x, Position1.y, Position1.z);
-			
+			glRotatef(rotZ, 0, 0, 1.0f);	// 平行移動行列に乗算
+			rotZ += 0.1f;
 		//	glScalef(1.0f, 1.0f, 1.0f);
 			// 平行移動行列
 			glTranslatef(Positions[i].x, Positions[i].y, Positions[i].z);	// スタックに乗算
 			// 回転行列
-		//	glRotatef(rotZ, 0, 0, 1.0f);	// 平行移動行列に乗算
-		//	rotZ += 0.1f;
+		
 
 			// ポリゴンセット
 			glBegin(GL_TRIANGLE_STRIP);			// 頂点のセット開始
