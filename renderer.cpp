@@ -90,6 +90,23 @@ void CRenderer::OpenGLSet2D()
 
 void CRenderer::OpenGLSet3D()
 {
+
+#define VIEW_ANGLE (45.0f)
+#define VIEW_NEAR_Z (1.0f)
+#define VIEW_FAR_Z (5000.0f)
+
+	// ビューポートセット
+	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+	double aspect = (double)SCREEN_WIDTH / (double)SCREEN_HEIGHT;
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(VIEW_ANGLE, aspect, VIEW_NEAR_Z, VIEW_FAR_Z);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 }
 
 
