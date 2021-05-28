@@ -5,7 +5,7 @@
 
 
 const char* CLASS_NAME = "AppClass";
-const char* WINDOW_NAME = "AT13A114_15_小林亮太_GG31課題01";//課題の時はクラス_出席番号_氏名にする
+const char* WINDOW_NAME = "AT13A114_15_小林亮太_GG31課題02";//課題の時はクラス_出席番号_氏名にする
 
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
