@@ -2,14 +2,18 @@
 #include "renderer.h"
 #include "polygon.h"
 #include "textureGL.h"
-#include "vector.h"
+//#include "vector.h"
+#include "model.h"
 #include "renderer.h"
 #include <math.h>
 
 #define PYRAMID_NUM 9
 
+CModel Cube;
+
 // テクスチャ画像のファイル名
-char FileName[] = { "asset/texture/texture.tga" };
+char FileName[] = { "asset\\texture\\texture.tga" };
+char ModelName[] = { "asset\\model\\sphere.obj" };
 
 VECTOR3D Positions[PYRAMID_NUM];
 
@@ -24,7 +28,8 @@ CPolygon::~CPolygon()
  void CPolygon::Init()
 {
 	 m_Texture = LoadTexture(FileName);
-	 float pos[] = {
+	 Cube.Load(ModelName);
+	 /*float pos[] = {
 		 0.0f,-1.0f,
 		 -1.0f,0.0f,0.0f,0.0f,1.0f,0.0f,
 		 -2.0f,1.0f, -1.0f,1.0f, 0.0f,1.0f, 1.0f,1.0f, 2.0f,1.0f
@@ -33,12 +38,13 @@ CPolygon::~CPolygon()
 		 Positions[i].x = pos[i * 2];
 		 Positions[i].y = pos[i * 2 + 1];
 		 Positions[i].z = 0.0f;
-	 }
+	 }*/
 }
 
  void CPolygon::Uninit()
 {
 	 UnloadTexture(m_Texture);
+	 Cube.Unload();
 }
 
  void CPolygon::Update()
@@ -118,9 +124,8 @@ CPolygon::~CPolygon()
 		 0.0, 0.0, 10.0,	// カメラ座標
 		 0.0, 0.0, 0.0,	// 注視点
 		 0.0, 1.0, 0.0);	// カメラの上方向
-	 static float rotZ2 = 0.0f;
-	 static VECTOR3D Position2(0.0f, 0.0f, 0.0f);
-	 for (int i = 0; i < n; i++)
+	 
+	 /*for (int i = 0; i < n; i++)
 	 {
 		 glMatrixMode(GL_MODELVIEW);	// ポリゴン描画行列の操作に切り替える
 		 glPushMatrix();				// 現在のモデルビュー行列を保存
@@ -260,6 +265,13 @@ CPolygon::~CPolygon()
 		 glMatrixMode(GL_MODELVIEW);
 		 glPopMatrix();
 
+	 }*/
+	 {
+	 static float rotZ2 = 0.0f;
+	 static VECTOR3D Position2(0.0f, 0.0f, 0.0f);
+	 glPushMatrix();
+	 float rad = (rotZ2 + 1 * 72.0f);
+		 Cube.Draw();
 	 }
 	// ライトオン
 	glEnable(GL_LIGHTING);
