@@ -12,10 +12,10 @@
 CModel Cube;
 
 // テクスチャ画像のファイル名
-char FileName[] = { "asset\\texture\\texture.tga" };
-char ModelName[] = { "asset\\model\\sphere.obj" };
+static char FileName[] = { "asset\\texture\\texture.tga" };
+static char ModelName[] = { "asset\\model\\sphere.obj" };
 
-VECTOR3D Positions[PYRAMID_NUM];
+static VECTOR3D Positions[PYRAMID_NUM];
 
 CPolygon3D::CPolygon3D()
 {

@@ -11,9 +11,9 @@
 
 
 // テクスチャ画像のファイル名
-char FileName[] = { "asset\\texture\\texture.tga" };
+static char FileName[] = { "asset\\texture\\texture.tga" };
 
-VECTOR3D Positions[PYRAMID_NUM];
+static VECTOR3D PositionPyramid[PYRAMID_NUM];
 
 CPolygon2D::CPolygon2D()
 {
@@ -27,14 +27,14 @@ CPolygon2D::~CPolygon2D()
 {
 	 m_Texture = LoadTexture(FileName);
 	 float pos[] = {
-		 0.0f,-1.0f,
+		 0.0f,-100.0f,
 		 -100.0f,0.0f,0.0f,0.0f,100.0f,0.0f,
 		 -200.0f,100.0f, -100.0f,100.0f, 0.0f,100.0f, 100.0f,100.0f, 200.0f,100.0f
 	 };
 	 for (int i = 0; i < PYRAMID_NUM; i++) {
-		 Positions[i].x = pos[i * 2];
-		 Positions[i].y = pos[i * 2 + 1];
-		 Positions[i].z = 0.0f;
+		 PositionPyramid[i].x = pos[i * 2];
+		 PositionPyramid[i].y = pos[i * 2 + 1];
+		 PositionPyramid[i].z = 0.0f;
 	 }
 }
 
@@ -64,7 +64,6 @@ CPolygon2D::~CPolygon2D()
 	 static VECTOR3D Position1(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, -0);
 
 
-	 VECTOR3D PositionPyramid;
 
 	 // 2dポリゴン表示
 	 // 回転ポリゴンを表示
@@ -79,7 +78,7 @@ CPolygon2D::~CPolygon2D()
 	 		rotZ += 0.1f;
 	 	//	glScalef(1.0f, 1.0f, 1.0f);
 	 		// 平行移動行列
-	 		glTranslatef(Positions[i].x, Positions[i].y, Positions[i].z);	// スタックに乗算
+	 		glTranslatef(PositionPyramid[i].x, PositionPyramid[i].y, PositionPyramid[i].z);	// スタックに乗算
 	 		// 回転行列
 	 	
 

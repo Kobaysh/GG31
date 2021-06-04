@@ -10,6 +10,7 @@ void Camera::Init()
 	m_front = VECTOR3D(0.0f, 0.0f, -1.0f);
 	m_right = VECTOR3D(1.0f, 0.0f, 0.0f);
 	m_up = VECTOR3D(0.0f, 1.0f, 0.0f);
+	m_lookAt = m_positon + m_front;
 }
 
 void Camera::Uninit()
@@ -39,6 +40,7 @@ void Camera::Update()
 	}
 	m_positon += temp;
 	//m_positon = m_positon + temp;
+	m_lookAt = m_positon + m_front;
 }
 
 void Camera::Draw()
@@ -49,5 +51,6 @@ void Camera::Draw()
 	gluLookAt(
 		m_positon.x, m_positon.y, m_positon.z,	// カメラ座標
 		m_lookAt.x, m_lookAt.y, m_lookAt.z,	// 注視点
+		//m_front.x, m_front.y, m_front.z,	// 注視点
 		m_up.x, m_up.y, m_up.z);	// カメラの上方向
 }

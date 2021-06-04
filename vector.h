@@ -12,6 +12,28 @@ struct COLOR
 // 2Dベクトル構造体
 struct VECTOR2D
 {
+	VECTOR2D operator+(VECTOR2D vec) {
+		VECTOR2D temp(0.0f, 0.0f);
+		temp.x = this->x + vec.x;
+		temp.y = this->y + vec.y;
+		return temp;
+	}
+	VECTOR2D operator-(VECTOR2D vec) {
+		VECTOR2D temp(0.0f, 0.0f);
+		temp.x = this->x - vec.x;
+		temp.y = this->y - vec.y;
+		return temp;
+	}
+	VECTOR2D operator+=(VECTOR2D vec) {
+		this->x = this->x + vec.x;
+		this->y = this->y + vec.y;
+		return *this;
+	}
+	VECTOR2D operator-=(VECTOR2D vec) {
+		this->x = this->x - vec.x;
+		this->y = this->y - vec.y;
+		return *this;
+	}
 	VECTOR2D()
 	{
 		x = 0.0f;
@@ -32,22 +54,30 @@ struct VECTOR2D
 struct VECTOR3D
 {
 	VECTOR3D operator+(VECTOR3D vec) {
+		VECTOR3D temp(0.0f, 0.0f, 0.0f);
+		temp.x = this->x + vec.x;
+		temp.y = this->y + vec.y;
+		temp.z = this->z + vec.z;
+		return temp;
+	}
+	VECTOR3D operator-(VECTOR3D vec) {
+		VECTOR3D temp(0.0f, 0.0f, 0.0f);
+		temp.x = this->x - vec.x;
+		temp.y = this->y - vec.y;
+		temp.z = this->z - vec.z;
+		return temp;
+	}
+	VECTOR3D operator+=(VECTOR3D vec) {
 		this->x = this->x + vec.x;
 		this->y = this->y + vec.y;
 		this->z = this->z + vec.z;
 		return *this;
 	}
-	VECTOR3D operator-(VECTOR3D vec) {
+	VECTOR3D operator-=(VECTOR3D vec) {
 		this->x = this->x - vec.x;
 		this->y = this->y - vec.y;
 		this->z = this->z - vec.z;
 		return *this;
-	}
-	VECTOR3D operator+=(VECTOR3D vec) {
-		return (*this + vec);
-	}
-	VECTOR3D operator-=(VECTOR3D vec) {
-		return (*this + vec);
 	}
 
 	VECTOR3D()
@@ -72,6 +102,36 @@ struct VECTOR3D
 // 4Dベクトル構造体
 struct VECTOR4D
 {
+	VECTOR4D operator+(VECTOR4D vec) {
+		VECTOR4D temp(0.0f, 0.0f, 0.0f,0.0f);
+		temp.x = this->x + vec.x;
+		temp.y = this->y + vec.y;
+		temp.z = this->z + vec.z;
+		temp.w = this->w + vec.w;
+		return temp;
+	}
+	VECTOR4D operator-(VECTOR4D vec) {
+		VECTOR4D temp(0.0f, 0.0f, 0.0f,0.0f);
+		temp.x = this->x - vec.x;
+		temp.y = this->y - vec.y;
+		temp.z = this->z - vec.z;
+		temp.w = this->w - vec.w;
+		return temp;
+	}
+	VECTOR4D operator+=(VECTOR4D vec) {
+		this->x = this->x + vec.x;
+		this->y = this->y + vec.y;
+		this->z = this->z + vec.z;
+		this->w = this->w + vec.w;
+		return *this;
+	}
+	VECTOR4D operator-=(VECTOR4D vec) {
+		this->x = this->x - vec.x;
+		this->y = this->y - vec.y;
+		this->z = this->z - vec.z;
+		this->w = this->w - vec.w;
+		return *this;
+	}
 	VECTOR4D()
 	{
 		x = 0.0f;
