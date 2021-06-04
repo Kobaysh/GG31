@@ -1,10 +1,10 @@
 #pragma once
 
-class  CPolygon
+class  CPolygon2D
 {
 public:
-	 CPolygon();
-	~ CPolygon();
+	 CPolygon2D();
+	~ CPolygon2D();
 
 	void Init();
 	void Uninit();

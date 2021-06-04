@@ -1,6 +1,6 @@
 #include "main.h"
 #include "renderer.h"
-#include "polygon.h"
+#include "polygon3D.h"
 #include "textureGL.h"
 //#include "vector.h"
 #include "model.h"
@@ -17,15 +17,15 @@ char ModelName[] = { "asset\\model\\sphere.obj" };
 
 VECTOR3D Positions[PYRAMID_NUM];
 
-CPolygon::CPolygon()
+CPolygon3D::CPolygon3D()
 {
 }
 
-CPolygon::~CPolygon()
+CPolygon3D::~CPolygon3D()
 {
 }
 
- void CPolygon::Init()
+ void CPolygon3D::Init()
 {
 	 m_Texture = LoadTexture(FileName);
 	 Cube.Load(ModelName);
@@ -41,22 +41,22 @@ CPolygon::~CPolygon()
 	 }*/
 }
 
- void CPolygon::Uninit()
+ void CPolygon3D::Uninit()
 {
 	 UnloadTexture(m_Texture);
 	 Cube.Unload();
 }
 
- void CPolygon::Update()
+ void CPolygon3D::Update()
 {
 }
 
- void CPolygon::Draw()
+ void CPolygon3D::Draw()
  {
 	 // ライトオフ
 	 glDisable(GL_LIGHTING);
 
-	 CRenderer::OpenGLSet2D();
+//	 CRenderer::OpenGLSet2D();
 	 // プロジェクション行列->2D用の行列がセットされた状態
 	 // モデルビュー行列->単位行列がセットされた状態
 
@@ -117,13 +117,13 @@ CPolygon::~CPolygon()
 
 
 
-	 // 3D設定
-	 CRenderer::OpenGLSet3D();
-	 // カメラの作成->モデルビュー行列に乗算
-	 gluLookAt(
-		 0.0, 0.0, 10.0,	// カメラ座標
-		 0.0, 0.0, 0.0,	// 注視点
-		 0.0, 1.0, 0.0);	// カメラの上方向
+	 //// 3D設定
+	 //CRenderer::OpenGLSet3D();
+	 //// カメラの作成->モデルビュー行列に乗算
+	 //gluLookAt(
+		// 0.0, 0.0, 10.0,	// カメラ座標
+		// 0.0, 0.0, 0.0,	// 注視点
+		// 0.0, 1.0, 0.0);	// カメラの上方向
 	 
 	 /*for (int i = 0; i < n; i++)
 	 {
