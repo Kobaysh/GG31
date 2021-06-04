@@ -6,7 +6,10 @@ public:
 	void Uninit();
 	void Update();
 	void Draw();
-
+	void ResetPos();
+	void ResetVector();
+	void ResetLook();
+	void ResetCamera();
 private:
 	VECTOR3D m_positon;
 	VECTOR3D m_front;
